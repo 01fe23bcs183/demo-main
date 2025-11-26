@@ -10,6 +10,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <div className="font-bold text-xl">IndieTix</div>
             <nav className="flex gap-4 text-sm">
               <a href="/" className="hover:underline">Home</a>
+              <a href="/discover" className="hover:underline">Discover</a>
               <a href="/events" className="hover:underline">Browse</a>
               <a href="/bookings" className="hover:underline">My Bookings</a>
             </nav>

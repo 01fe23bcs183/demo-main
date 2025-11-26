@@ -16,7 +16,13 @@ export default function MyBookings() {
             <div className="text-sm text-slate-600">{booking.tickets} tickets • ₹{booking.ticketPrice} each</div>
             <div className="text-sm">Fees: PG ₹{booking.fees.paymentGatewayFee}, Server ₹{booking.fees.serverMaintenanceFee}, Platform ₹{booking.fees.platformFixedFee} + {booking.fees.platformPercentFee * 100}%</div>
             <div className="text-sm text-slate-700">Refunds require organizer approval. Tap support to raise a request.</div>
-            <button className="button">View ticket (QR ready)</button>
+            <div className="text-xs text-slate-600">Refund status: {booking.refundStatus}</div>
+            <div className="text-xs text-slate-600">Payment: {booking.paymentStatus}; Smart Split: {booking.smartSplitLinks?.join(", ")}</div>
+            <div className="flex gap-2 flex-wrap">
+              <button className="button">View ticket (QR ready)</button>
+              <button className="button" style={{ background: "#1f2937" }}>Contact support</button>
+              <button className="button" style={{ background: "#0f172a" }}>Request refund</button>
+            </div>
           </div>
         ))}
       </div>
