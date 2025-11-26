@@ -1,15 +1,16 @@
 import { discoverFeed } from "@indietix/api";
 
 const feed = discoverFeed();
-const formatDate = (date: string) => new Date(date).toLocaleString("en-IN", { timeZone: "Asia/Kolkata", dateStyle: "medium", timeStyle: "short" });
+const formatDate = (date: string) =>
+  new Date(date).toLocaleString("en-IN", { timeZone: "Asia/Kolkata", dateStyle: "medium", timeStyle: "short" });
 
 export default function DiscoverPage() {
   return (
     <div className="space-y-5">
-      <section className="card space-y-3">
+      <section className="card space-y-3 fade-in">
         <div className="flex items-center justify-between gap-3 flex-wrap">
           <div>
-            <div className="text-xs uppercase text-slate-500">Feed</div>
+            <div className="pill soft">Feed</div>
             <h1 className="text-2xl font-semibold">Discover indie drops</h1>
             <p className="text-sm text-slate-600">Fast scroll for what&apos;s trending, what&apos;s refundable, and what your friends are buying.</p>
           </div>
@@ -38,14 +39,14 @@ export default function DiscoverPage() {
         </div>
       </section>
 
-      <section className="space-y-3">
+      <section className="space-y-3 fade-up">
         <div className="flex items-center justify-between gap-3 flex-wrap">
           <h2 className="text-xl font-semibold">For you</h2>
           <div className="text-sm text-slate-600">Curated using tags, refunds, and split-friendly pricing.</div>
         </div>
         <div className="grid gap-4 md:grid-cols-2">
-          {feed.map((event) => (
-            <div key={event.id} className="card space-y-2">
+          {feed.map((event, index) => (
+            <div key={event.id} className="card space-y-2" style={{ animation: "fadeUp 0.6s ease both", animationDelay: `${index * 50}ms` }}>
               <div className="flex gap-3">
                 <img src={`${event.cover}?auto=format&fit=crop&w=200&q=70`} alt={event.title} className="w-28 h-28 object-cover rounded" />
                 <div className="space-y-1">
